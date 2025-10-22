@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>نتيجة الطالب</title>
+</head>
+<body>
+    <h1>📖 نتيجة الطالب</h1>
+
+    <p><strong>الاسم:</strong> {{ student.name }}</p>
+    <p><strong>الرقم المدني:</strong> {{ student.civil_id }}</p>
+
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>المادة</th>
+            <th>الدرجة</th>
+        </tr>
+        {% for subject, grade in student.grades.items() %}
+        <tr>
+            <td>{{ subject }}</td>
+            <td>{{ grade }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <th>المجموع الكلي</th>
+            <th>{{ student.total }}</th>
+        </tr>
+    </table>
+
+    <br>
+    <a href="/">🔙 العودة للبحث</a>
+</body>
+</html>
